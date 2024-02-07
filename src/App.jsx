@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/navbar";
+import Hero from "./components/hero";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -24,6 +25,8 @@ function App() {
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+
+      <Hero />
     </div>
   );
 }
