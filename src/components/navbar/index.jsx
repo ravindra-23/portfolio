@@ -25,7 +25,9 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
-    <nav className={`${navbarBackbround} z-40 w-full fixed top-0 py-6`}>
+    <nav
+      className={`${navbarBackbround} bg-primary z-40 w-full fixed top-0 py-6`}
+    >
       <div className="flex items-center justify-between mx-auto w-5/6">
         <h4 className="font-poppins text-3xl font-bold">Ravindra</h4>
 
