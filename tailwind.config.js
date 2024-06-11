@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0C2438",
+        primary: "#171717",
         seconday: "#678094",
         accent: "#E4AD5F",
         light: "#A4B0BC",
@@ -13,6 +13,9 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         roboto: ["Roboto Mono", "monospace"],
+      },
+      backgroundImage: {
+        expertiseBg: "url('./assets/hello-world-bg.webp')",
       },
     },
   },
