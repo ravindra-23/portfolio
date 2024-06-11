@@ -1,9 +1,33 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import ReactLogo from "../../assets/react.svg";
+import Js from "../../assets/javascript.svg";
+import Wordpress from "../../assets/wordpress.svg";
+import Css from "../../assets/css.svg";
+
+import { MouseParallax } from "react-just-parallax";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const [animationInterval, setAnimationInterval] = useState(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      "#text",
+      {
+        ease: "power1.inOut",
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        delay: 2.5,
+        stagger: 0.1,
+      }
+    );
+  }, []);
 
   useEffect(() => {
     const h1Element = document.querySelector(".title");
@@ -44,27 +68,58 @@ const Hero = () => {
       id="home"
       className="w-full min-h-[80vh] mt-[80px] flex justify-center items-center"
     >
-      <div>
+      <div className="overflow-hidden">
         <h2
           data-value="RAVINDRA"
           className="title text-[50px] sm:text-[100px] lg:text-[150px] text-center font-poppins font-bold text-white drop-shadow-md tracking-[0.15em] mb-3 sm:mb-0"
         >
           RAVINDRA
         </h2>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1 }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
+        <p
+          id="text"
+          className="text-[30px] font-mono font-bold text-center tracking-[0.15em]"
         >
-          <p className="text-[30px] font-mono font-bold text-center tracking-[0.15em]">
-            FRONT END WEB DEVELOPER
-          </p>
-        </motion.div>
+          FRONT END WEB DEVELOPER
+        </p>
+
+        <div>
+          <div className="absolute left-20">
+            <MouseParallax>
+              <img
+                src={ReactLogo}
+                alt="react"
+                className="text-white fill-white w-20 h-auto opacity-30"
+              />
+            </MouseParallax>
+          </div>
+          <div className="absolute top-40 left-10">
+            <MouseParallax>
+              <img
+                src={Js}
+                alt="javascript"
+                className="text-white fill-white w-20 h-auto opacity-30"
+              />
+            </MouseParallax>
+          </div>
+          <div className="absolute top-40 right-10">
+            <MouseParallax>
+              <img
+                src={Wordpress}
+                alt="wordpress"
+                className="text-white fill-white w-20 h-auto opacity-30"
+              />
+            </MouseParallax>
+          </div>
+          <div className="absolute bottom-40 right-20">
+            <MouseParallax>
+              <img
+                src={Css}
+                alt="css"
+                className="text-white fill-white w-20 h-auto opacity-30"
+              />
+            </MouseParallax>
+          </div>
+        </div>
       </div>
     </section>
   );
